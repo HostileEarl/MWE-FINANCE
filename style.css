@@ -1,48 +1,196 @@
-body {
-  font-family: Arial, sans-serif;
+/* =========================
+    GLOBAL RESET + BASE
+   ========================= */
+* {
   margin: 0;
-  background: #f4f6f8;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
+body {
+  background: #F2F2F2;
+  color: #0A0A0A;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* =========================
+    VARIABLES (FOR EASY THEMING)
+   ========================= */
+:root {
+  --primary: #4D0000;
+  --accent: #9C2020;
+  --dark: #0A0A0A;
+  --light: #F2F2F2;
+  --shadow: rgba(0, 0, 0, 0.15);
+}
+
+/* =========================
+    LAYOUT + CONTAINERS
+   ========================= */
 header {
-  background: #1f2937;
-  color: white;
-  padding: 20px;
+  background: var(--primary);
+  color: var(--light);
   text-align: center;
+  padding: 2rem;
+}
+
+header h1 {
+  font-size: 2.8rem;
+  letter-spacing: 1px;
+}
+
+header p {
+  font-size: 1rem;
+  margin-top: 4px;
+  opacity: 0.85;
 }
 
 nav {
-  background: #374151;
-  padding: 10px;
-  text-align: center;
+  background: var(--dark);
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
 }
 
 nav a {
-  color: white;
-  margin: 0 15px;
   text-decoration: none;
-  font-weight: bold;
+  color: var(--light);
+  font-weight: 600;
+  position: relative;
+  transition: 0.3s ease;
 }
 
-nav a:hover {
-  text-decoration: underline;
+nav a::after {
+  content: "";
+  height: 2px;
+  width: 0%;
+  background: var(--accent);
+  display: block;
+  margin: auto;
+  transition: 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
 }
 
 main {
-  padding: 20px;
-}
-
-.card {
-  background: white;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding: 2rem;
 }
 
 footer {
+  background: var(--dark);
+  color: var(--light);
   text-align: center;
-  padding: 10px;
-  background: #e5e7eb;
-  font-size: 14px;
+  padding: 1rem;
+  font-size: 0.95rem;
+}
+
+/* =========================
+    CARDS & SECTION STYLES
+   ========================= */
+.card {
+  background: var(--light);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 1.8rem;
+  box-shadow: 0px 10px 20px var(--shadow);
+  transform: translateY(0px);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 14px 28px var(--shadow);
+}
+
+h2 {
+  color: var(--primary);
+  margin-bottom: 0.8rem;
+  font-size: 1.6rem;
+  letter-spacing: 0.5px;
+}
+
+/* =========================
+    RESPONSIVE EMBEDS
+   ========================= */
+iframe {
+  border-radius: 12px;
+  border: none;
+  width: 100%;
+  min-height: 560px;
+  box-shadow: 0px 6px 15px var(--shadow);
+}
+
+/* =========================
+    BUTTONS (IF USED)
+   ========================= */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  background: var(--accent);
+  color: var(--light);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+.btn:hover {
+  background: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 12px var(--shadow);
+}
+
+/* =========================
+    MOBILE RESPONSIVE
+   ========================= */
+@media screen and (max-width: 768px) {
+  header h1 {
+    font-size: 2.4rem;
+  }
+  nav {
+    flex-direction: column;
+  }
+}
+
+/* =========================
+   LOGO + BRANDING
+   ========================= */
+
+.site-header {
+  background: linear-gradient(
+    135deg,
+    #0A0A0A,
+    #4D0000
+  );
+  padding: 1.5rem 2rem;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  justify-content: center;
+}
+
+.logo {
+  height: 70px;
+  width: auto;
+  filter: drop-shadow(0 0 12px rgba(156, 32, 32, 0.6));
+}
+
+.brand-text h1 {
+  font-size: 2.4rem;
+  color: #F2F2F2;
+  letter-spacing: 1px;
+}
+
+.brand-text p {
+  color: #F2F2F2;
+  opacity: 0.85;
+  font-size: 0.9rem;
 }
